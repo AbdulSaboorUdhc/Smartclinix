@@ -1,0 +1,30 @@
+{
+  "name": "smartclinix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "UserCreation": "cypress run --spec cypress/e2e/Business-User-Creation/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "AppointmentSchduling": "cypress run --spec cypress/e2e/AppointmentScheduling/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "HealthRecords:Patient": "cypress run --spec cypress/e2e/PatientHealthRecords/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "HealthRecords:Provider": "cypress run --spec cypress/e2e/ProviderHealthRecords-Outside-PGHD/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "PGHD": "cypress run --spec cypress/e2e/PatientHealthRecords/01-Add-Health-Records.spec.cy.js,cypress/e2e/Provider-PGHD/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "RPM": "cypress run --spec cypress/e2e/RPM/**/**.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "ConsentForm": "cypress run --spec cypress/e2e/Consent-Form/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45",
+    "Case": "cypress run --spec cypress/e2e/Case-Mangement/**/*.spec.cy.js --record --key 9169dd39-4f75-42d5-8bd6-33b78e4a5f45"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "cypress-mailosaur": "^2.14.0",
+    "cypress-mailslurp": "^1.7.0",
+    "cypress-mochawesome-reporter": "^3.7.0"
+  },
+  "dependencies": {
+    "cypress-iframe": "^1.0.1",
+    "jsdom": "^23.0.1",
+    "moment": "^2.29.4"
+  }
+}
