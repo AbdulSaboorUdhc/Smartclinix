@@ -1,0 +1,8 @@
+{
+  "providerUrl": "https://testprac21.scxtest.net/",
+  "patientUrl": "https://testprac21.scxtest.net/pportal/#/",
+  "providerUrlStage": "https://stagingprac2.smartclinix.net/",
+  "patientUrlStage": "https://stagingprac2.smartclinix.net/pportal/#/",
+  "providerUrlProd": "https://getwellsoon.smartclinix.net/",
+  "patientUrlProd": "https://getwellsoon.smartclinix.net/pportal/#/"
+}
