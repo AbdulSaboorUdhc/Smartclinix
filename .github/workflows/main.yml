@@ -1,4 +1,4 @@
-name: Cypress Tests Execution on CICD
+name: Cypress Tests Execution on github action
 
 on:
   push:
