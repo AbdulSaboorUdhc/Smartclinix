@@ -1,33 +1,12 @@
-name: Cypress Tests Execution on CICD
-
-on:
-  push:
-    branches: [main]
-
+name: End-to-end tests
+on: push
 jobs:
-  run-cypress:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm install
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v4  
-
-        with:
-          record: true 
-          browser: chrome
-          parallel: true
-          config-file: cypress/cypress.config.js
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      - uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/videos
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
