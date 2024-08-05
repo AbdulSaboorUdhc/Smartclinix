@@ -1,4 +1,4 @@
-name: Cypress Tests Execution on CICD
+name: Cypress Tests Execution on github action
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6   
+        uses: cypress-io/github-action@v6.7.2   
 
         with:
           record: true 
