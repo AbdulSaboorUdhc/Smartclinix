@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6  
+        uses: cypress-io/github-action@v5  
 
         with:
           record: true 
@@ -29,5 +29,5 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
-        # env:
-        #   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
