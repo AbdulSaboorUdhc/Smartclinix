@@ -1,23 +1,24 @@
-# name: End-to-end tests
-# on: 
-#   push:
-#     branches: [main]
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-22.04
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         containers: [1, 2, 3, 4, 5]
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v6
-#         with:
-#           parallel: true
-#         env:
-#           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+name: End-to-end tests
+on: 
+  push:
+    branches: [main]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          parallel: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
 #       # - uses: actions/upload-artifact@v4
 #       #   if: failure()
@@ -28,17 +29,3 @@
 #       #   with:
 #       #     name: cypress-videos
 #       #     path: cypress/videos
-          
-name: Test Secret Access
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  test-secret:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Test Secret
-        run: echo "${{ secrets.CYPRESS_RECORD_KEY }}"
