@@ -7,7 +7,6 @@ module.exports = defineConfig({
       MAILOSAUR_API_KEY: "vA6khN7Gvf64wPjpUDKgea9oOT7u3xYR",
       MAILSLURP_API_KEY: "8fe0ec19d5dfb71dd02c1aba08237c10b68588a9b777201213e28198872b7cb2",
       PASSWORD: 'Password1@',
-      CYPRESS_RECORD_KEY: "9169dd39-4f75-42d5-8bd6-33b78e4a5f45"
     },  
     retries: {
       runMode: 1,
