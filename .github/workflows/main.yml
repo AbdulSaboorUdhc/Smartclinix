@@ -5,11 +5,17 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          parallel: true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
