@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: Smart Clinix End to END Test flows
 on: 
   push:
     branches: [main]
@@ -13,19 +13,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v6 
         with:
           record: true
           parallel: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-#       # - uses: actions/upload-artifact@v4
-#       #   if: failure()
-#       #   with:
-#       #     name: cypress-screenshots
-#       #     path: cypress/screenshots
-#       # - uses: actions/upload-artifact@v4
-#       #   with:
-#       #     name: cypress-videos
-#       #     path: cypress/videos
+    # - uses: actions/upload-artifact@v4
+    #   if: failure()
+    #   with:
+    #     name: cypress-screenshots
+    #     path: cypress/screenshots
+    # - uses: actions/upload-artifact@v4
+    #   with:
+    #     name: cypress-videos
+    #     path: cypress/videos

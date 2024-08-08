@@ -3,7 +3,7 @@ describe("Delete Health Recrods of a Patient by Provider", ()=> {
     before("", () => {
         cy.fixture("urls.json").as("url")
         cy.get("@url").then((url) => {
-            cy.visit(url.providerUrls)
+            cy.visit(url.providerUrl)
         }) 
         cy.clearCookies()
         cy.clearLocalStorage()
