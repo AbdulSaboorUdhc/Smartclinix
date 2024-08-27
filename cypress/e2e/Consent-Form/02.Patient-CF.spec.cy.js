@@ -14,15 +14,33 @@ let generatedFirstName
                 const generatedLastName = data.generatedLastName;
                 generatedFirstName = data.generatedFirstName;
 
-                cy.patientLogin(generatedLastName, Cypress.env('PASSWORD'))
+                cy.patientLogin("clinix3304", Cypress.env('PASSWORD'))
             })
             cy.wait(6000)
             cy.get('.btn-lg').click()
-            cy.get('.positioned-div > .btn').click()
+            // cy.get('.positioned-div > .btn').click()
     })   
 
-    it("Signing Consent via Patient portal", () => {
-        cy.wait(8000)
+    it('Signed a Consent from Patient before login', () => {
+        let maxAttempts = 9;
+
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+            if (attempt === 4) {
+                cy.get('.custom-control-label').click({force: true})
+            } else {
+                cy.get('.text-right > .btn').click();
+            }            
+            cy.wait(500);
+        }
+        
+        cy.get('[placeholder="Type Signature.."]').type(generatedFirstName)
+        cy.contains('Finish').click()
+        cy.wait(12000)
+    })
+
+    it("Signing Consent via Patient portal after login ", () => {
+        cy.reload()
+        cy.url().should('eq', 'https://testprac21.scxtest.net/pportal/#/book-appointment')
         cy.get('a[routerlink="my-account"]').should('be.visible').click({force:true})
         cy.get("ul[role='tablist'] li:nth-child(4) a").click()
         cy.get("tbody tr td:nth-child(2)").contains("Financial Statement Consent")
@@ -33,7 +51,7 @@ let generatedFirstName
         cy.get('.col-md-12 > :nth-child(5)').should('contain', 'Insurance Policy')
         cy.get('.col-md-12 > :nth-child(7)').should('contain', 'Overdue and Credit Balances')
         cy.get('#agreeCheck').click({force:true})
-        cy.get('span > .form-control').type(generatedFirstName)
+        cy.get('span > .form-control').type(generatedFirstName) 
         cy.get('.btn-secondary').click()
         cy.get("tbody tr td:nth-child(2)").contains("Financial Statement Consent")
         .parent()

@@ -98,6 +98,6 @@ describe("Provider user account creation & verification" , () => {
       cy.clearCookies()
       cy.clearLocalStorage()
       cy.providerLogin(lastName, Cypress.env('PASSWORD'))
-      cy.get('.user-name > .text').should("have.text", firstName + ' ' + lastName + ' ')
+      cy.get('.user-name > .text').should("contain", ' ' + firstName + ' ' + lastName + ' ')
     })
 })

@@ -25,6 +25,7 @@ describe("Patient registeration", ()=> {
             }
         })
     })
+
     it("Register as a Patient User", ()=> {
         const patientRegistrationPage = new PatientRegistrationPage()
 
