@@ -14,7 +14,7 @@ let generatedFirstName
                 const generatedLastName = data.generatedLastName;
                 generatedFirstName = data.generatedFirstName;
 
-                cy.patientLogin("clinix3304", Cypress.env('PASSWORD'))
+                cy.patientLogin(generatedLastName, Cypress.env('PASSWORD'))
             })
             cy.wait(6000)
             cy.get('.btn-lg').click()
@@ -66,7 +66,7 @@ let generatedFirstName
         .click()
 
         cy.wait("@downloadPDF").then((interception) => {
-
+            
             expect(interception.response.statusCode).to.equal(200)
             expect(interception.response.body.extension).to.equal('.pdf')
             expect(interception.response.body.displayName).to.contain('Financial Statement Consent')

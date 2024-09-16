@@ -79,7 +79,7 @@ describe("Provider user account creation & verification" , () => {
             return mailslurp.waitForLatestEmail(inboxId, 30000, true);
         })
         .then(email => {
-          expect(email.subject).to.contain("Send Login Activation")
+          expect(email.subject).to.contain("Create Smartclinix User Account")
           const dom = new JSDOM(email.body);
           const link = dom.window.document.querySelector('a');
           if (link) {
@@ -98,6 +98,6 @@ describe("Provider user account creation & verification" , () => {
       cy.clearCookies()
       cy.clearLocalStorage()
       cy.providerLogin(lastName, Cypress.env('PASSWORD'))
-      cy.get('.user-name > .text').should("contain", ' ' + firstName + ' ' + lastName + ' ')
+      cy.get('.user-name > .text').should("contain.text", ''+ firstName + ' ' + lastName +'')
     })
 })

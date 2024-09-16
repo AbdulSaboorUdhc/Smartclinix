@@ -5,7 +5,7 @@ module.exports = defineConfig({
   e2e: {
     env: {
       MAILOSAUR_API_KEY: "vA6khN7Gvf64wPjpUDKgea9oOT7u3xYR",
-      MAILSLURP_API_KEY: "8fe0ec19d5dfb71dd02c1aba08237c10b68588a9b777201213e28198872b7cb2",
+      MAILSLURP_API_KEY: "cfb7b26474909c07ba5b1277eec9f21835e8e9063bd5aa08a9bd91ceffb5adc0",
       PASSWORD: 'Password1@',
     },  
     retries: {
